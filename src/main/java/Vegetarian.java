@@ -5,7 +5,7 @@ public class Vegetarian implements PizzaBuilder {
 
     private String size;
     private String dough;
-    private List<String> toppings = new ArrayList<>();
+    private List<String> toppings = new ArrayList<>(List.of("Bell peppers", "Olives", "Mushrooms", "Spinach", "Tomato sauce"));
 
     @Override
     public PizzaBuilder setSize(String size) {

@@ -1,26 +1,17 @@
+import java.util.logging.Logger;
+
 public class Main {
+
     public static void main(String[] args) {
+        Logger logger = Logger.getLogger(Main.class.getName());
 
-        PizzaBuilder hawaiianBuilder = new Hawaiian()
-                .setSize("Family")
-                .setDough("Thin")
-                .addTopping("Ham")
-                .addTopping("Pineapple");
+        Pizza vegetarianPizza = Pizzaiolo.makeVegetarianPizza();
+        logger.info("Vegetarian Pizza: " + vegetarianPizza);
 
-        Pizzaiolo pizzaiolo1 = new Pizzaiolo (hawaiianBuilder);
-        Pizza pizzaHawaiana = pizzaiolo1.makePizza();
-        System.out.println(pizzaHawaiana);
+        Pizza hawaiianPizza = Pizzaiolo.makeHawaiianPizza();
+        logger.info("Hawaiian Pizza: " + hawaiianPizza);
 
-        PizzaBuilder veggieBuilder = new Vegetarian()
-                .setSize("Medium")
-                .setDough("Whole grain")
-                .addTopping("Aubergine")
-                .addTopping("Pepper")
-                .addTopping("Onion");
-
-        Pizzaiolo pizzaiolo2 = new Pizzaiolo(veggieBuilder);
-        Pizza pizzaVeggie = pizzaiolo2.makePizza();
-        System.out.println(pizzaVeggie);
+        Pizza customPizza = Pizzaiolo.makeCustomPizza();
+        logger.info("Custom Pizza: " + customPizza);
     }
-
 }
